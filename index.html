@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Invitation: [Your Event Name]</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>You're Invited to Inauguration of Annual Cultural Fest!</h1>
+            <p>A celebration of innovation and community.</p>
+            <div id="countdown" class="countdown"></div>
+            <a href="#rsvp" class="cta-button">Confirm Your Spot</a>
+        </div>
+    </header>
+    <section id="details" class="details-section">
+        <h2>Event Essentials</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3><span class="emoji">🗓️</span> Date & Time</h3>
+                <p>Saturday, 7th December, 2025</p>
+                <p>7:00 PM - 10:00 PM IST</p>
+            </div>
+            <div class="info-card">
+                <h3><span class="emoji">📍</span> Venue</h3>
+                <p>C-Block Auditorium, PDEU</p>
+                <p>Raysan,Gandhinagar,Gujarat</p>
+            </div>
+            <div class="info-card">
+                <h3><span class="emoji">✨</span> Theme</h3>
+                <p>Future of Web Technology</p>
+                <p>Dress Code: Smart Casual</p>
+            </div>
+        </div>
+    </section>
+    <section id="schedule" class="description-section">
+        <h2>What to Expect</h2>
+        <p>Join us for an evening of insightful talks, networking opportunities, and a celebratory dinner. We will be showcasing the top projects from the IWT class and hearing from industry experts on emerging web trends.</p>
+        
+        <div class="map-container">
+            
+        </div>
+    </section>
+    <section id="rsvp" class="rsvp-section">
+        <h2>RSVP Now!</h2>
+        <form id="rsvpForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="attending">Attending?</label>
+            <select id="attending" name="attending" required>
+                <option value="">-- Select Option --</option>
+                <option value="yes">Yes, I will be there!</option>
+                <option value="no">No, I cannot make it.</option>
+            </select>
+            <button type="submit">Submit RSVP</button>
+        </form>
+        <p id="rsvpMessage" class="hidden-message"></p>
+    </section>
+    <footer>
+        <p>&copy; 2025 IWT Project. For inquiries, contact us.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

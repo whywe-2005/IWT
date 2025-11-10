@@ -1,0 +1,9 @@
+CREATE DATABASE event_db;
+USE event_db;
+CREATE TABLE rsvp (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    attending VARCHAR(5) NOT NULL,
+    submission_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
