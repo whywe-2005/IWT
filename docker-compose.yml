@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+
+  # 1. PHP Application Service (app) - Processes handle_rsvp.php
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      # Mounts your local project folder into the container's web root
+      - .:/var/www/html 
+    depends_on:
+      - db
+    expose:
+      - 9000
+
+  # 2. Web Server Service (web) - Serves HTML/CSS/JS
+  web:
+    image: nginx:stable-alpine
+    ports:
+      # Maps server port 80 to your Mac's port 8080 (http://localhost:8080)
+      - "8080:80" 
+    volumes:
+      - .:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+
+  # 3. Database Service (db) - MySQL Server
+  db:
+    image: mysql:8.0
+    environment:
+      # This password MUST match the one in handle_rsvp.php
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: event_db # This creates the database automatically
+    volumes:
+      - db_data:/var/lib/mysql 
+      # --- ADD THIS LINE ---
+      - ./init_db.sql:/docker-entrypoint-initdb.d/init.sql
+      # ---------------------
+
+volumes:
+  db_data:
